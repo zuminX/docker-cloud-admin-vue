@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "code": 0,
+  "httpStatus": 200,
+  "message": null,
+  "data": [
+    {
+      "newUserTotal": 1,
+      "activeUserTotal": 2
+    },
+    {
+      "newUserTotal": 0,
+      "activeUserTotal": 1
+    },
+    {
+      "newUserTotal": 0,
+      "activeUserTotal": 0
+    },
+    {
+      "newUserTotal": 0,
+      "activeUserTotal": 0
+    },
+    {
+      "newUserTotal": 0,
+      "activeUserTotal": 0
+    },
+    {
+      "newUserTotal": 0,
+      "activeUserTotal": 0
+    },
+    {
+      "newUserTotal": 0,
+      "activeUserTotal": 0
+    }
+  ]
+}
