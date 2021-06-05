@@ -199,11 +199,17 @@ export default {
     this.handleRefresh()
   },
   methods: {
+    /**
+     * 刷新数据
+     */
     handleRefresh() {
       this.getStats()
       this.getImageList()
       this.getContainerList()
     },
+    /**
+     * 获取统计信息
+     */
     async getStats() {
       const { data, success } = await getStats()
       if (success) {
@@ -215,12 +221,18 @@ export default {
         this.info = data.info
       }
     },
+    /**
+     * 获取镜像列表
+     */
     async getImageList() {
       const { data, success } = await loadingRequest(getAllImage(), this, 'imageLoading')
       if (success) {
         this.imageList = data.map(image => image.repoTags[0]).filter(tag => tag)
       }
     },
+    /**
+     * 获取容器列表
+     */
     async getContainerList() {
       const { data, success } = await loadingRequest(getAllContainer(), this, 'containerLoading')
       if (success) {

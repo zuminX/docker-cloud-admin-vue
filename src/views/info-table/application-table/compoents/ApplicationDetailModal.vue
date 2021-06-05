@@ -27,7 +27,7 @@
           :name="serve.name"
         >
           <div class="ui raised segment">
-            <template v-if="isRun(serve.state)">
+            <template v-if="isRun(serve)">
               <a class="ui green ribbon label">当前状态</a>
               <span>运行</span>
             </template>
@@ -89,6 +89,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * 初始化显示内容
+     * @param application 应用
+     */
     async init(application) {
       this.$refs.applicationDetailModal.show()
       this.loading = true
@@ -102,11 +106,21 @@ export default {
       }
       this.loading = false
     },
-    isRun(state) {
-      return state === 'running'
+    /**
+     * 判断该服务是否正在运行
+     * @param serve 服务状态
+     * @returns {boolean} 若在运行则返回true，否则返回false
+     */
+    isRun(serve) {
+      return serve.state === 'running'
     },
+    /**
+     * 打开访问服务的新页面
+     * @param serve 服务
+     * @param port 端口
+     */
     openServe(serve, port) {
-      if (!this.isRun(serve.state)) {
+      if (!this.isRun(serve)) {
         showWarnToast({ message: '该服务未启动，无法访问' })
         return
       }

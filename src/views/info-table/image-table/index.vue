@@ -84,7 +84,6 @@ export default {
      * 更新当前分页数据
      * @param page 当前页
      * @param pageSize 每页大小
-     * @returns {Promise<void>}
      */
     async updateCurrentPageData(page = 1, pageSize = 5) {
       const { success, data } = await loadingRequest(searchImage(this.searchName, page, pageSize), this)
@@ -101,6 +100,7 @@ export default {
     },
     /**
      * 打开保存镜像的弹出层
+     * @param image 镜像
      */
     saveImage(image) {
       this.$refs.saveImageModal.init(image)

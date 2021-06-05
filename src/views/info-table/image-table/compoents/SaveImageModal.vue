@@ -11,7 +11,6 @@
         <LeftLabeledInputField :data.sync="form.indicate" name="indicate" label="标识" />
         <LeftLabeledInputField :data.sync="form.description" name="description" label="描述" />
         <LeftLabeledInputField :data.sync="form.version" name="version" label="版本" />
-        <LeftLabeledInputField :data.sync="form.description" name="description" label="描述" />
         <LeftLabeledInputField :data.sync="form.userId" name="userId" label="用户ID" />
         <BasicField>
           <div class="ui toggle checkbox m-padded-tb tip-popup">
@@ -72,6 +71,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * 初始化显示内容
+     * @param image 镜像
+     */
     init(image) {
       if (image) {
         this.form = image
@@ -79,7 +82,7 @@ export default {
       this.$refs.saveImageModal.show()
     },
     /**
-     * 保存
+     * 保存修改结果
      */
     async save() {
       const { success } = await saveImage(this.form)
@@ -92,6 +95,7 @@ export default {
     },
     /**
      * 获取默认的表单对象
+     * @return 表单对象
      */
     getDefaultForm() {
       return {
@@ -106,11 +110,12 @@ export default {
       }
     },
     /**
-     * 设置用户表单验证规则
+     * 设置镜像表单验证规则
+     * @return 验证规则
      */
     validateRule() {
       return {
-        name: FormValidation.normalStringRule({ fieldName: '名称', minLength: 4, maxLength: 16 }),
+        name: FormValidation.nameStringRule({ fieldName: '名称', minLength: 4, maxLength: 16 }),
         userId: FormValidation.notEmptyRule('用户'),
         createTime: FormValidation.notEmptyRule('创建时间')
       }

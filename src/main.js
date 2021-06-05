@@ -7,8 +7,8 @@ import './plugins/element.js'
 import '@/permission'
 
 import '@/icons'
-import '../semantic/dist/semantic.min.css'
-import '../semantic/dist/semantic.min.js'
+import '../semantic/dist/semantic.css'
+import '../semantic/dist/semantic.js'
 import '@/assets/styles/index.scss'
 
 Vue.config.productionTip = false

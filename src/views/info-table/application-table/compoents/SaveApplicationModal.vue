@@ -69,6 +69,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * 初始化显示内容
+     * @param application 应用
+     */
     init(application) {
       if (application) {
         this.form = application
@@ -76,7 +80,7 @@ export default {
       this.$refs.saveApplicationModal.show()
     },
     /**
-     * 保存
+     * 保存应用
      */
     async save() {
       const { success } = await saveApplication(this.form)
@@ -89,6 +93,7 @@ export default {
     },
     /**
      * 获取默认的表单对象
+     * @return 表单对象
      */
     getDefaultForm() {
       return {
@@ -102,6 +107,7 @@ export default {
     },
     /**
      * 设置用户表单验证规则
+     * @return 校验规则
      */
     validateRule() {
       return {
