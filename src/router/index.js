@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '@/components/Layout'
+import { getUrl } from '@/utils/coreUtils'
 
 Vue.use(VueRouter)
+
+const url = getUrl()
 
 // 所有权限通用路由表
 export const constantRouterMap = [
@@ -93,7 +96,7 @@ export const asyncRouterMap = [
     component: Layout,
     children: [
       {
-        path: 'http://www.sudoku.com/home',
+        path: `${url}/home`,
         meta: {
           title: '用户端首页',
           icon: 'link'

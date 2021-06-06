@@ -10,10 +10,14 @@ import '@/icons'
 import '../semantic/dist/semantic.css'
 import '../semantic/dist/semantic.js'
 import '@/assets/styles/index.scss'
+import {
+  isDev,
+  isMock
+} from '@/utils/coreUtils'
 
 Vue.config.productionTip = false
 
-if (process.env.VUE_APP_MOCK === 'true' && process.env.NODE_ENV === 'development') {
+if (isMock() && isDev()) {
   require('../mock')
 }
 

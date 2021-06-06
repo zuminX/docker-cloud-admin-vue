@@ -1,8 +1,30 @@
-import Vue from 'vue'
 import {
   getNicknameById,
   listNicknameById
 } from '@/api/ums/infoAPI'
+
+/**
+ * 是否处于开发环境
+ * @return {boolean} 若处于开发环境则返回true，否则返回false
+ */
+export const isDev = () => {
+  return process.env.NODE_ENV !== 'development'
+}
+
+/**
+ * 是否开启Mock
+ * @return {boolean} 若开启则返回true，否则返回false
+ */
+export const isMock = () => {
+  return process.env.VUE_APP_MOCK === 'true'
+}
+
+/**
+ * 获取项目访问URL
+ */
+export const getUrl = () => {
+  return isDev() ? 'http://www.dockercloud.com' : 'http://dockercloud.cn1.utools.club'
+}
 
 /**
  * 判断角色列表中是否包含管理员

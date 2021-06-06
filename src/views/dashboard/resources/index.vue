@@ -37,7 +37,7 @@
               <div class="about-influece-label">cpu</div>
             </div>
             <div class="about-influence-item">
-              <div class="about-influence-num color1">{{ info.memory / 1000000000.0 }}G</div>
+              <div class="about-influence-num color1">{{ formatMemory(info.memory) }}</div>
               <div class="about-influece-label">内存</div>
             </div>
           </div>
@@ -246,6 +246,13 @@ export default {
         this.runningContainer = containerList.filter(container => container.state === 'running').map(container => container.name)
         this.exitedContainer = containerList.filter(container => container.state === 'exited').map(container => container.name)
       }
+    },
+    /**
+     * 格式化显示内存
+     */
+    formatMemory(memory) {
+      const result = memory / 1000000000.0
+      return result.toPrecision(4) + ' G'
     }
   }
 }

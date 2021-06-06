@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       captchaBaseUrl: '',
-      input: ''
+      input: '',
+      loading: false
     }
   },
   mounted() {
